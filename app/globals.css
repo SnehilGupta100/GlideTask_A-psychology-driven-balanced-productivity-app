@@ -1,0 +1,230 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated design tokens to match GlideTask color scheme */
+:root {
+  /* Brand Colors */
+  --primary-green: hsl(96, 60%, 52%); /* was ~73% lightness, now darker for contrast */
+  --clean-black: hsl(0, 0%, 0%);
+  --pure-white: hsl(0, 0%, 100%);
+  --sharp-black: hsl(0, 0%, 0%);
+  --soft-grey: hsl(0, 0%, 52.94%);
+
+  /* Design System Tokens */
+  --background: var(--pure-white);
+  --foreground: var(--sharp-black);
+  --card: var(--pure-white);
+  --card-foreground: var(--sharp-black);
+  --popover: var(--pure-white);
+  --popover-foreground: var(--sharp-black);
+  --primary: var(--primary-green);
+  --primary-foreground: var(--pure-white); /* was black, switch to white for contrast */
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: var(--sharp-black);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: var(--soft-grey);
+  --accent: var(--primary-green);
+  --accent-foreground: var(--pure-white); /* match primary contrast */
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: var(--pure-white);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 90%);
+  --ring: var(--primary-green);
+  --chart-1: var(--primary-green);
+  --chart-2: hsl(220, 70%, 50%);
+  --chart-3: hsl(280, 70%, 50%);
+  --chart-4: hsl(30, 70%, 50%); /* orange */
+  --chart-5: hsl(340, 70%, 50%); /* pink/red */
+  --radius: 0rem;
+  --sidebar: hsl(0, 0%, 98%);
+  --sidebar-foreground: var(--sharp-black);
+  --sidebar-primary: var(--primary-green);
+  --sidebar-primary-foreground: var(--pure-white);
+  --sidebar-accent: hsl(0, 0%, 96%);
+  --sidebar-accent-foreground: var(--sharp-black);
+  --sidebar-border: hsl(0, 0%, 90%);
+  --sidebar-ring: var(--primary-green);
+}
+
+.dark {
+  --background: hsl(0, 0%, 8%);
+  --foreground: var(--pure-white);
+  --card: hsl(0, 0%, 12%);
+  --card-foreground: var(--pure-white);
+  --popover: hsl(0, 0%, 12%);
+  --popover-foreground: var(--pure-white);
+  --primary: var(--primary-green);
+  --primary-foreground: var(--pure-white);
+  --secondary: hsl(0, 0%, 16%);
+  --secondary-foreground: var(--pure-white);
+  --muted: hsl(0, 0%, 16%);
+  --muted-foreground: hsl(0, 0%, 65%);
+  --accent: var(--primary-green);
+  --accent-foreground: var(--pure-white);
+  --destructive: hsl(0, 62%, 50%);
+  --destructive-foreground: var(--pure-white);
+  --border: hsl(0, 0%, 20%);
+  --input: hsl(0, 0%, 20%);
+  --ring: var(--primary-green);
+  --sidebar: hsl(0, 0%, 10%);
+  --sidebar-foreground: var(--pure-white);
+  --sidebar-primary: var(--primary-green);
+  --sidebar-primary-foreground: var(--pure-white);
+  --sidebar-accent: hsl(0, 0%, 16%);
+  --sidebar-accent-foreground: var(--pure-white);
+  --sidebar-border: hsl(0, 0%, 20%);
+  --sidebar-ring: var(--primary-green);
+}
+
+/* Zen Mode Themes */
+.zen-meditation {
+  --background: hsl(240, 40%, 98%);
+  --foreground: hsl(240, 60%, 20%);
+  --primary: hsl(260, 60%, 70%);
+  --secondary: hsl(250, 40%, 95%);
+  --muted: hsl(250, 30%, 92%);
+  --card: hsl(250, 50%, 96%);
+  --border: hsl(250, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+.zen-exercise {
+  --background: hsl(100, 30%, 98%);
+  --foreground: hsl(120, 40%, 25%);
+  --primary: hsl(120, 50%, 65%);
+  --secondary: hsl(110, 30%, 95%);
+  --muted: hsl(110, 25%, 92%);
+  --card: hsl(110, 40%, 96%);
+  --border: hsl(110, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+.zen-reading {
+  --background: hsl(35, 30%, 98%);
+  --foreground: hsl(30, 40%, 25%);
+  --primary: hsl(35, 50%, 65%);
+  --secondary: hsl(30, 30%, 95%);
+  --muted: hsl(30, 25%, 92%);
+  --card: hsl(30, 40%, 96%);
+  --border: hsl(30, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+.zen-writing {
+  --background: hsl(220, 30%, 98%);
+  --foreground: hsl(220, 40%, 25%);
+  --primary: hsl(220, 50%, 65%);
+  --secondary: hsl(215, 30%, 95%);
+  --muted: hsl(215, 25%, 92%);
+  --card: hsl(215, 40%, 96%);
+  --border: hsl(215, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+.zen-learning {
+  --background: hsl(180, 30%, 98%);
+  --foreground: hsl(180, 40%, 25%);
+  --primary: hsl(180, 50%, 65%);
+  --secondary: hsl(175, 30%, 95%);
+  --muted: hsl(175, 25%, 92%);
+  --card: hsl(175, 40%, 96%);
+  --border: hsl(175, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+.zen-default {
+  --background: hsl(210, 30%, 98%);
+  --foreground: hsl(210, 40%, 25%);
+  --primary: hsl(210, 50%, 65%);
+  --secondary: hsl(205, 30%, 95%);
+  --muted: hsl(205, 25%, 92%);
+  --card: hsl(205, 40%, 96%);
+  --border: hsl(205, 20%, 85%);
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+
+/* Zen mode overlay for dimming effect */
+.zen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist); /* was space grotesk; use Geist */
+  --font-mono: var(--font-geist-mono); /* keep mono */
+  /* remove serif to limit to 2 font families */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom utility classes for GlideTask */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .spacing-quarter {
+    gap: 0.25rem;
+  }
+}
